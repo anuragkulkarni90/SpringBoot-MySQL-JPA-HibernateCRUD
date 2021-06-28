@@ -1,0 +1,37 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.4.2'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.4.2'
+    implementation 'junit:junit:4.13.1'
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.25'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.rest-assured:rest-assured:4.0.0'
+    testImplementation 'io.rest-assured:json-path:4.0.0'
+    testImplementation 'io.rest-assured:xml-path:4.0.0'
+    testImplementation 'io.rest-assured:spring-web-test-client:4.0.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+clean {
+    delete.clear()
+    delete.add 'build/libs'
+}
+
+bootJar {
+}
